@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prank Screen</title>
+
+<style>
+    body{
+        margin:0;
+        background:#000;
+        color:#00ff00;
+        font-family:Consolas, monospace;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        overflow:hidden;
+        text-align:center;
+    }
+
+    h1{
+        font-size:2.2rem;
+        animation:blink 0.8s infinite;
+    }
+
+    p{
+        font-size:1.2rem;
+    }
+
+    .box{
+        border:2px solid #00ff00;
+        padding:30px;
+        border-radius:10px;
+        box-shadow:0 0 20px #00ff00;
+        max-width:600px;
+    }
+
+    .progress{
+        width:100%;
+        height:20px;
+        border:1px solid #00ff00;
+        margin-top:20px;
+    }
+
+    .bar{
+        width:0%;
+        height:100%;
+        background:#00ff00;
+        animation:load 8s linear forwards;
+    }
+
+    @keyframes blink{
+        50%{opacity:0;}
+    }
+
+    @keyframes load{
+        from{width:0%;}
+        to{width:100%;}
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>⚠ WARNING ⚠</h1>
+
+    <p id="msg">
+        Your phone is under the control of <strong>Haris</strong>.
+    </p>
+
+    <div class="progress">
+        <div class="bar"></div>
+    </div>
+
+    <p id="status">Initializing remote connection...</p>
+</div>
+
+<script>
+const messages = [
+    "Connecting to secure server...",
+    "Accessing device...",
+    "Downloading memes...",
+    "Almost done...",
+  
+];
+
+let i = 0;
+
+const interval = setInterval(() => {
+    i++;
+    if(i < messages.length){
+        document.getElementById("status").innerHTML = messages[i];
+    }else{
+        clearInterval(interval);
+    }
+}, 1500);
+</script>
+
+</body>
+</html>
